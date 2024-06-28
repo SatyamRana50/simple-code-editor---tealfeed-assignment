@@ -19,8 +19,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
     <textarea
       value={value}
       onChange={handleChange}
-      className="flex-1 w-full h-full p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm font-mono text-sm resize-none"
+      className="w-full h-full p-6 bg-white text-gray-900 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm resize-none rounded-lg shadow-lg"
       placeholder={placeholder}
+      style={{ caretColor: "#007ACC" }}
     />
   );
 };
