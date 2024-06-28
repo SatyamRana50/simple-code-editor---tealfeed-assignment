@@ -5,9 +5,9 @@ import Footer from "./Footer";
 
 const CodeEditorWrapper: React.FC = () => {
   return (
-    <div className="w-full flex flex-col h-screen bg-gray-100">
+    <div className="min-h-screen w-full bg-gray-100 flex flex-col">
       <Header />
-      <div className="flex-grow overflow-y-auto">
+      <div className="fixed top-20 bottom-10 left-0 right-0 flex-grow overflow-hidden">
         <CodeEditor />
       </div>
       <Footer />
