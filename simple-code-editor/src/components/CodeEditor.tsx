@@ -30,7 +30,7 @@ const CodeEditor: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 h-screen flex flex-col">
+    <div className="container mx-auto px-8 py-4 h-screen flex flex-col">
       <div className="flex justify-between items-center mb-4">
         <DropdownField
           name="language"
@@ -43,9 +43,7 @@ const CodeEditor: React.FC = () => {
         />
       </div>
       <Input value={code} onChange={handleChange} />
-      <div className="bg-gray-100 my-4 rounded shadow-lg overflow-auto max-h-[calc(100vh-300px)]">
-        <CustomSyntaxHighlighter code={code} language={selectedLanguage} />
-      </div>
+      <CustomSyntaxHighlighter code={code} language={selectedLanguage} />
     </div>
   );
 };

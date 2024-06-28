@@ -1,27 +1,27 @@
-import React, {ChangeEvent, FocusEvent} from 'react'
+import React, { ChangeEvent, FocusEvent } from "react";
 
 interface Props {
-  label?: string
-  required?: boolean
-  id?: string
-  name: string
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
-  onBlur?: (e: FocusEvent<HTMLSelectElement>) => void
-  disabled?: boolean
-  error?: any
-  autoComplete?: string
-  errorText?: string
-  testId?: string
-  className?: string
-  wrapperClassName?: string
-  placeholder?: string
-  labelKey: string
-  valueKey: string
-  autofocus?: boolean
-  isMultiselect?: boolean
-  register?: any
-  rules?: any
-  data: any[]
+  label?: string;
+  required?: boolean;
+  id?: string;
+  name: string;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  onBlur?: (e: FocusEvent<HTMLSelectElement>) => void;
+  disabled?: boolean;
+  error?: any;
+  autoComplete?: string;
+  errorText?: string;
+  testId?: string;
+  className?: string;
+  wrapperClassName?: string;
+  placeholder?: string;
+  labelKey: string;
+  valueKey: string;
+  autofocus?: boolean;
+  isMultiselect?: boolean;
+  register?: any;
+  rules?: any;
+  data: any[];
 }
 
 const DropdownField = ({
@@ -36,7 +36,7 @@ const DropdownField = ({
   onBlur,
   disabled,
   error,
-  autoComplete = 'off',
+  autoComplete = "off",
   errorText,
   testId,
   autofocus,
@@ -50,9 +50,9 @@ const DropdownField = ({
   return (
     <div className={`input-wrapper ${wrapperClassName}`}>
       {label && (
-        <label htmlFor={id} className='input-label'>
+        <label htmlFor={id} className="input-label">
           {label}
-          {required && <span className='required-field'>*</span>}
+          {required && <span className="required-field">*</span>}
         </label>
       )}
       <select
@@ -60,9 +60,9 @@ const DropdownField = ({
         id={id || name}
         multiple={isMultiselect}
         className={`custom-input form-input ${className} ${
-          required && error[name] ? 'border-error-90' : 'border-neutral-30'
+          required && error[name] ? "border-error-90" : "border-neutral-30"
         }`}
-        placeholder=' '
+        placeholder=" "
         onChange={onChange}
         onBlur={onBlur}
         disabled={disabled}
@@ -72,7 +72,7 @@ const DropdownField = ({
         {...register}
       >
         {!isMultiselect && (
-          <option className={''} value={''}>
+          <option className={""} value={""}>
             {placeholder}
           </option>
         )}
@@ -88,15 +88,15 @@ const DropdownField = ({
       {label && (
         <label
           htmlFor={id}
-          className='text-xs text-neutral-50 absolute pt-2 top-0 pointer-events-none -z-10'
+          className="text-xs text-neutral-50 absolute pt-2 top-0 pointer-events-none -z-10"
         >
           {label}
-          {required && <span className='text-error-90'>*</span>}
+          {required && <span className="text-error-90">*</span>}
         </label>
       )}
-      {required && error[name] && <p className='error-cls'>{errorText}</p>}
+      {required && error[name] && <p className="error-cls">{errorText}</p>}
     </div>
-  )
-}
+  );
+};
 
-export default DropdownField
+export default DropdownField;
