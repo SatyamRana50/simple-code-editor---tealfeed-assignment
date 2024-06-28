@@ -1,24 +1,59 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vs } from "react-syntax-highlighter/dist/esm/styles/prism"; // Import the desired dark theme
+import {
+  vs,
+  darcula,
+  atomDark,
+} from "react-syntax-highlighter/dist/esm/styles/prism"; // Import available themes
 
 interface CustomSyntaxHighlighterProps {
   code: string;
   language: string;
+  theme: string;
 }
 
 const CustomSyntaxHighlighter: React.FC<CustomSyntaxHighlighterProps> = ({
   code,
   language,
+  theme,
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollTop = ref.current.scrollHeight;
+    }
+  }, [code]);
+
+  // Function to select the appropriate theme based on the prop
+  const selectTheme = () => {
+    switch (theme) {
+      case "vs":
+        return vs;
+      case "darcula":
+        return darcula;
+      case "atomDark":
+        return atomDark;
+      default:
+        return vs; // Default theme
+    }
+  };
+
   return (
-    <SyntaxHighlighter
-      language={language}
-      style={vs}
-      className="w-full h-80 p-6 bg-white text-gray-900 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 font-mono text-sm resize-none rounded-lg shadow-lg custom-scrollbar custom-scrollbar-thumb bg-gray-300 hover:bg-gray-400"
+    <div
+      ref={ref}
+      className="w-full h-80 mt-2 px-2 bg-white rounded-lg shadow-lg overflow-auto custom-scrollbar"
+      style={{ border: "none", outline: "none" }}
     >
-      {code}
-    </SyntaxHighlighter>
+      <SyntaxHighlighter
+        language={language}
+        style={selectTheme()}
+        className="bg-transparent text-gray-900 font-mono text-sm resize-none"
+        customStyle={{ border: "none", boxShadow: "none", outline: "none" }}
+      >
+        {code}
+      </SyntaxHighlighter>
+    </div>
   );
 };
 
