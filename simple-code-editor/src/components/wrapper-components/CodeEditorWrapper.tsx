@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { availableLanguages, availableThemes } from "../../utils/helpers";
 
 interface CodeEditorWrapperProps {
   Header: React.FC<any>; // Props for Header component
@@ -15,26 +16,6 @@ const CodeEditorWrapper: React.FC<CodeEditorWrapperProps> = ({
   const [selectedLanguage, setSelectedLanguage] =
     useState<string>("javascript");
   const [selectedTheme, setSelectedTheme] = useState<string>("vs"); // Default theme
-
-  // Available languages and themes data
-  const availableLanguages = [
-    { name: "JavaScript (default)", value: "javascript" },
-    { name: "Python", value: "python" },
-    { name: "Java", value: "java" },
-    { name: "C++", value: "cpp" },
-    { name: "Ruby", value: "ruby" },
-    { name: "TypeScript", value: "typescript" },
-    { name: "Swift", value: "swift" },
-    { name: "Go", value: "go" },
-    { name: "Rust", value: "rust" },
-    { name: "Kotlin", value: "kotlin" },
-  ];
-
-  const availableThemes = [
-    { name: "vs (default)", value: "vs" },
-    { name: "Darcula", value: "darcula" },
-    { name: "AtomDark", value: "atomDark" },
-  ];
 
   // Function to handle language change
   const handleLanguageChange = (language: string) => {

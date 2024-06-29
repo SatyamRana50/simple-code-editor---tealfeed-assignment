@@ -1,8 +1,8 @@
 import React from "react";
-import CodeEditorWrapper from "../components/CodeEditorWrapper";
-import Header from "../components/Header";
-import CodeEditor from "../components/CodeEditor";
-import Footer from "../components/Footer";
+import CodeEditorWrapper from "../components/wrapper-components/CodeEditorWrapper";
+import Header from "../components/ui-components/Header";
+import CodeEditor from "../components/codeEditor";
+import Footer from "../components/ui-components/Footer";
 
 const HomePage: React.FC = () => {
   return (

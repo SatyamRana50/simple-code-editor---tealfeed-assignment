@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Input from "./Input";
-import CustomSyntaxHighlighter from "./CustomSyntaxHighlighter";
+import Input from "./CodeInput";
+import CustomSyntaxHighlighter from "./CodeHighlighter";
 
 interface CodeEditorProps {
   selectedLanguage: string; // Props received: selected programming language
