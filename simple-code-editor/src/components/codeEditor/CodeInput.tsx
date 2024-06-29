@@ -1,29 +1,46 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
+import { FiEye } from "react-icons/fi";
+import { Button } from "../ui-components/Button";
+import { TextArea } from "../ui-components/TextArea";
 
 interface CustomInputProps {
-  value: string; // Current value of the input
-  onChange: (value: string) => void; // Function to handle value change
-  placeholder?: string; // Optional placeholder text
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
   value,
   onChange,
-  placeholder = "Type your code here...", // Default placeholder text
+  placeholder = "Type your code here...",
 }) => {
-  // Function to handle input changes
+  const [buttonsVisible, setButtonsVisible] = useState(true);
+
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(event.target.value); // Call onChange function with updated value
+    onChange(event.target.value);
+  };
+
+  const handleDownload = () => {
+    alert("Download functionality to be implemented.");
+  };
+
+  const handleCopy = () => {
+    alert("Copy functionality to be implemented.");
+  };
+
+  const toggleButtonsVisibility = () => {
+    setButtonsVisible((prev) => !prev);
   };
 
   return (
-    <textarea
-      value={value} // Bind input value to the provided value prop
-      onChange={handleChange} // Call handleChange function on input change
-      className="w-full h-60 p-6 bg-white text-gray-900 placeholder-gray-500 border focus:outline-none focus:ring-2 font-mono text-sm resize-none rounded-lg custom-scrollbar shadow-lg" // Styling classes for textarea
-      placeholder={placeholder} // Placeholder text displayed when textarea is empty
-      style={{ caretColor: "#007ACC" }} // Custom caret color style
-    />
+    <div className="relative">
+
+      <TextArea
+        value={value}
+        onChange={handleChange}
+        placeholder={placeholder}
+      />
+    </div>
   );
 };
 

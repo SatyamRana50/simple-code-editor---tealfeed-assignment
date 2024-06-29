@@ -17,3 +17,18 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-500;
 }
+/* Add custom styles for the editor */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+

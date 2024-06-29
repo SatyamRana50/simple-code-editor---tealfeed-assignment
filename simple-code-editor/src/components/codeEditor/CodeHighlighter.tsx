@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { selectBackgroundColor, selectTheme } from "../../utils/helpers";
+import { selectBackgroundColor } from "../../utils/helpers";
+import { Highlighter } from "../ui-components/Highlighter";
 
 interface CustomSyntaxHighlighterProps {
   code: string;
@@ -34,14 +34,7 @@ const CustomSyntaxHighlighter: React.FC<CustomSyntaxHighlighterProps> = ({
         overflowX: "auto", // Allow horizontal scrolling
       }}
     >
-      <SyntaxHighlighter
-        language={language}
-        style={selectTheme(theme)} // Dynamically select theme style
-        className="bg-transparent text-gray-900 font-mono text-sm resize-none"
-        customStyle={{ border: "none", boxShadow: "none", outline: "none" }}
-      >
-        {code}
-      </SyntaxHighlighter>
+      <Highlighter code={code} language={language} theme={theme} />
     </div>
   );
 };

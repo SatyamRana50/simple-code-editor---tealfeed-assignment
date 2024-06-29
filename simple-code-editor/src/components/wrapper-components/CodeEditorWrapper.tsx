@@ -13,9 +13,8 @@ const CodeEditorWrapper: React.FC<CodeEditorWrapperProps> = ({
   Footer,
 }) => {
   // State hooks for selected language and theme
-  const [selectedLanguage, setSelectedLanguage] =
-    useState<string>("javascript");
-  const [selectedTheme, setSelectedTheme] = useState<string>("vs"); // Default theme
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("jsx");
+  const [selectedTheme, setSelectedTheme] = useState<string>("vsLight"); // Default theme
 
   // Function to handle language change
   const handleLanguageChange = (language: string) => {
