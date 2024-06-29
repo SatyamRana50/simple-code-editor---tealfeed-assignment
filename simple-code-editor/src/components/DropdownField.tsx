@@ -5,6 +5,7 @@ interface Props {
   required?: boolean;
   id?: string;
   name: string;
+  value?: string;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
   onBlur?: (e: FocusEvent<HTMLSelectElement>) => void;
   disabled?: boolean;
@@ -32,6 +33,7 @@ const DropdownField = ({
   required,
   data,
   id,
+  value,
   onChange,
   onBlur,
   disabled,
@@ -69,6 +71,7 @@ const DropdownField = ({
         autoComplete={autoComplete}
         data-testid={testId}
         autoFocus={autofocus}
+        value={value} // Set the value here
         {...register}
       >
         {!isMultiselect && (

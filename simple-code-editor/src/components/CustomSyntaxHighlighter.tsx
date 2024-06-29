@@ -19,6 +19,7 @@ const CustomSyntaxHighlighter: React.FC<CustomSyntaxHighlighterProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  // Automatically scroll to bottom when code changes
   useEffect(() => {
     if (ref.current) {
       ref.current.scrollTop = ref.current.scrollHeight;
@@ -39,15 +40,35 @@ const CustomSyntaxHighlighter: React.FC<CustomSyntaxHighlighterProps> = ({
     }
   };
 
+  // Function to select the background color based on the theme
+  const selectBackgroundColor = () => {
+    switch (theme) {
+      case "vs":
+        return "#ffffff"; // White background for VS theme
+      case "darcula":
+        return "#2b2b2b"; // Dark background for Darcula theme
+      case "atomDark":
+        return "#1e1e1e"; // Slightly lighter black background for Atom Dark theme
+      default:
+        return "#ffffff"; // Default to white background
+    }
+  };
+
   return (
     <div
       ref={ref}
-      className="w-full h-80 mt-2 px-2 bg-white rounded-lg shadow-lg overflow-auto custom-scrollbar"
-      style={{ border: "none", outline: "none" }}
+      className="w-full h-80 mt-4 px-2 rounded-lg shadow-lg overflow-auto custom-scrollbar"
+      style={{
+        backgroundColor: selectBackgroundColor(), // Dynamically select background color based on theme
+        border: "none", // Remove border
+        outline: "none", // Remove outline
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Enhanced shadow effect
+        overflowX: "auto", // Allow horizontal scrolling
+      }}
     >
       <SyntaxHighlighter
         language={language}
-        style={selectTheme()}
+        style={selectTheme()} // Dynamically select theme style
         className="bg-transparent text-gray-900 font-mono text-sm resize-none"
         customStyle={{ border: "none", boxShadow: "none", outline: "none" }}
       >
