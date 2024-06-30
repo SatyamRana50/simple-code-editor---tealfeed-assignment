@@ -6,36 +6,51 @@ interface CustomSyntaxHighlighterProps {
   code: string;
   language: string;
   theme: string;
+  scrollRef: React.RefObject<HTMLTextAreaElement>;
 }
 
 const CustomSyntaxHighlighter: React.FC<CustomSyntaxHighlighterProps> = ({
   code,
   language,
   theme,
+  scrollRef,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLPreElement>(null);
 
-  // Automatically scroll to bottom when code changes
+  // Synchronize scrolling with the textarea
   useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollTop = ref.current.scrollHeight;
+    const handleScroll = () => {
+      if (ref.current && scrollRef.current) {
+        ref.current.scrollTop = scrollRef.current.scrollTop;
+        ref.current.scrollLeft = scrollRef.current.scrollLeft;
+      }
+    };
+
+    const textarea = scrollRef.current;
+    if (textarea) {
+      textarea.addEventListener("scroll", handleScroll);
     }
-  }, [code]);
+
+    return () => {
+      if (textarea) {
+        textarea.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [scrollRef]);
 
   return (
-    <div
+    <pre
       ref={ref}
-      className="w-full h-80 mt-4 px-2 rounded-lg shadow-lg overflow-auto custom-scrollbar"
+      className="absolute top-0 left-0 w-full h-full p-2 z-0 m-0 pointer-events-none"
       style={{
-        backgroundColor: selectBackgroundColor(theme), // Dynamically select background color based on theme
-        border: "none", // Remove border
-        outline: "none", // Remove outline
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Enhanced shadow effect
-        overflowX: "auto", // Allow horizontal scrolling
+        backgroundColor: selectBackgroundColor(theme),
+        overflow: "hidden",
+        whiteSpace: "pre-wrap",
+        wordWrap: "break-word",
       }}
     >
       <Highlighter code={code} language={language} theme={theme} />
-    </div>
+    </pre>
   );
 };
 

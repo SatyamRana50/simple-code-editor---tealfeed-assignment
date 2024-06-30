@@ -1,34 +1,35 @@
-import React, { useState } from "react";
-import Input from "./CodeInput";
+import React, { useState, useRef } from "react";
+import CustomInput from "./CodeInput";
 import CustomSyntaxHighlighter from "./CodeHighlighter";
 
 interface CodeEditorProps {
-  selectedLanguage: string; // Props received: selected programming language
-  selectedTheme: string; // Props received: selected syntax highlighting theme
+  selectedLanguage: string;
+  selectedTheme: string;
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({
   selectedLanguage,
   selectedTheme,
 }) => {
-  const [code, setCode] = useState<string>(""); // State to store the code entered by the user
+  const [code, setCode] = useState<string>("");
+  const scrollRef = useRef<HTMLTextAreaElement>(null);
 
-  // Function to handle changes in the input code
   const handleChange = (value: string) => {
-    setCode(value); // Update the code state with the new value entered by the user
+    setCode(value);
   };
 
   return (
-    <div className="container mx-auto px-2 py-1 h-screen flex flex-col">
-      {/* Input component for users to enter code */}
-      <Input value={code} onChange={handleChange} />
-
-      {/* CustomSyntaxHighlighter component to display syntax-highlighted code */}
+    <div className="relative w-full h-80 mt-4 rounded-lg shadow-lg">
+      {/* Highlighted code */}
       <CustomSyntaxHighlighter
         code={code}
         language={selectedLanguage}
         theme={selectedTheme}
+        scrollRef={scrollRef}
       />
+
+      {/* Text input area */}
+      <CustomInput value={code} onChange={handleChange} scrollRef={scrollRef} />
     </div>
   );
 };
