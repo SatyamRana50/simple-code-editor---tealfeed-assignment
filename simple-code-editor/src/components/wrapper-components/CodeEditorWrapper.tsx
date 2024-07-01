@@ -14,7 +14,7 @@ const CodeEditorWrapper: React.FC<CodeEditorWrapperProps> = ({
 }) => {
   // State hooks for selected language and theme
   const [selectedLanguage, setSelectedLanguage] = useState<string>("jsx");
-  const [selectedTheme, setSelectedTheme] = useState<string>("vsLight"); // Default theme
+  const [selectedTheme, setSelectedTheme] = useState<string>("vsDark"); // Default theme
 
   // Function to handle language change
   const handleLanguageChange = (language: string) => {
@@ -27,7 +27,7 @@ const CodeEditorWrapper: React.FC<CodeEditorWrapperProps> = ({
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 flex flex-col">
+    <div className="px-2 py-4 min-h-screen bg-gray-100 flex flex-col overflow-hidden">
       {/* Render Header component with props */}
       <Header
         availableLanguages={availableLanguages}

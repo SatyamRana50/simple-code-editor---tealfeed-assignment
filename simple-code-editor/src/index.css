@@ -1,34 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* index.css */
 .custom-scrollbar::-webkit-scrollbar {
-  @apply w-2;
+  width: 6px; /* Width of the scrollbar */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-white;
+  background: transparent; /* Transparent track background */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded-lg;
+  background: rgba(255, 255, 255, 0.8); /* White with some transparency */
+  border: 2px solid rgba(0, 0, 0, 0.8); /* Dark black border with less intensity */
+  border-radius: 10px; /* Rounded corners */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500;
+  background: rgba(255, 255, 255, 1); /* Solid white on hover */
+  border: 2px solid rgba(0, 0, 0, 0.8); /* Dark black border with less intensity on hover */
 }
-/* Add custom styles for the editor */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-}
-
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-}
-

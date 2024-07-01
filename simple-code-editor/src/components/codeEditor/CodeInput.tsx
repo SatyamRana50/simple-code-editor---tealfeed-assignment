@@ -20,7 +20,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   return (
     <textarea
       ref={scrollRef}
-      className="absolute font-bold top-0 left-0 w-full h-full py-2 px-6 z-10 bg-transparent border-none outline-none caret-white resize-none custom-scrollbar"
+      className="absolute font-mono top-0 left-0 w-full h-full py-2 px-2 z-10 bg-transparent border-none outline-none caret-white resize-none custom-scrollbar"
       value={value}
       onChange={handleChange}
       placeholder={placeholder}

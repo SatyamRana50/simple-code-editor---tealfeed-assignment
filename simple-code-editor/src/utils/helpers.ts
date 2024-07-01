@@ -54,17 +54,17 @@ export const selectBackgroundColor = (theme: string) => {
     case "duotoneLight":
       return "#faf8f5";
     case "github":
-      return "#ffffff";
+      return "#F6F8FA";
     case "jettwaveDark":
-      return "#282a36";
+      return "#011627";
     case "jettwaveLight":
-      return "#ffffff";
+      return "#F1F5F9";
     case "nightOwl":
       return "#011627";
     case "nightOwlLight":
       return "#fbfbfb";
     case "oceanicNext":
-      return "#1b2b34";
+      return "#282C34";
     case "okaidia":
       return "#272822";
     case "oneDark":
@@ -76,9 +76,9 @@ export const selectBackgroundColor = (theme: string) => {
     case "shadesOfPurple":
       return "#2d2b55";
     case "synthwave84":
-      return "#2b213a";
+      return "#2E2E8F0";
     case "ultramin":
-      return "#282c34";
+      return "#FFFFFF";
     case "vsDark":
       return "#1e1e1e";
     case "vsLight":
@@ -106,8 +106,8 @@ export const availableLanguages = [
 ];
 
 export const availableThemes = [
-  { name: "VS Light(Default)", value: "vsLight" },
-  { name: "VS Dark", value: "vsDark" },
+  { name: "VS Light", value: "vsLight" },
+  { name: "VS Dark(default)", value: "vsDark" },
   { name: "Dracula", value: "dracula" },
   { name: "Duotone Dark", value: "duotoneDark" },
   { name: "Duotone Light", value: "duotoneLight" },
@@ -124,4 +124,5 @@ export const availableThemes = [
   { name: "Shades of Purple", value: "shadesOfPurple" },
   { name: "Synthwave '84", value: "synthwave84" },
   { name: "Ultramin", value: "ultramin" },
+  
 ];

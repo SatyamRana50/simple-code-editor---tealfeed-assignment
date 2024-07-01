@@ -19,7 +19,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   };
 
   return (
-    <div className="relative w-full h-80 mt-4 rounded-lg shadow-lg">
+    <div className="flex flex-col align-items-center justify-center h-full w-full rounded-lg shadow-lg">
       {/* Highlighted code */}
       <CustomSyntaxHighlighter
         code={code}

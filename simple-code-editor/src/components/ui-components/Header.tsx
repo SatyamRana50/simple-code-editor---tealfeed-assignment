@@ -44,9 +44,9 @@ const Header: React.FC<HeaderProps> = ({
         {/* Center section: Title and description */}
         <div className="text-center flex-grow">
           <h2 className="text-2xl font-extrabold text-gray-900">Code Editor</h2>
-          <p className="mt-1 text-lg text-gray-500">
+          {/* <p className="mt-1 text-lg text-gray-500">
             Write and highlight your code in various programming languages.
-          </p>
+          </p> */}
         </div>
 
         {/* Right section: Select a Theme */}

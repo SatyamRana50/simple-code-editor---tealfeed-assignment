@@ -41,9 +41,9 @@ const CustomSyntaxHighlighter: React.FC<CustomSyntaxHighlighterProps> = ({
   return (
     <pre
       ref={ref}
-      className="absolute top-0 left-0 w-full h-full p-2 z-0 m-0 pointer-events-none"
+      className="absolute top-0 left-0 w-full h-full p-2 z-0 pointer-events-none"
       style={{
-        backgroundColor: selectBackgroundColor(theme),
+        backgroundColor: selectBackgroundColor(theme) ,
         overflow: "hidden",
         whiteSpace: "pre-wrap",
         wordWrap: "break-word",
