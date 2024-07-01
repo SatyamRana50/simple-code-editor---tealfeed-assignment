@@ -15,10 +15,16 @@ export const Highlighter: React.FC<HighlighterProps> = ({
     <div>
       <Highlight theme={selectTheme(theme)} code={code} language={language}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre style={style}>
+          <pre
+            style={{
+              ...style,
+              overflowX: "auto", // Allow horizontal scrolling if needed
+              whiteSpace: "pre-wrap", // Wrap long lines
+              wordWrap: "break-word", // Break long words
+            }}
+          >
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line })}>
-                {/* <span>{i + 1}</span> */}
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token })} />
                 ))}

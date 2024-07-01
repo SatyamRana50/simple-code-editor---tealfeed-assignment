@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { availableLanguages, availableThemes } from "../../utils/helpers";
+import {
+  availableLanguages,
+  availableThemes,
+  selectBackgroundColor,
+} from "../../utils/helpers";
 
 interface CodeEditorWrapperProps {
   Header: React.FC<any>; // Props for Header component
@@ -15,6 +19,7 @@ const CodeEditorWrapper: React.FC<CodeEditorWrapperProps> = ({
   // State hooks for selected language and theme
   const [selectedLanguage, setSelectedLanguage] = useState<string>("jsx");
   const [selectedTheme, setSelectedTheme] = useState<string>("vsDark"); // Default theme
+  const [bgColor, setBgColor] = useState<string>("#1E1E1E"); // Default theme
 
   // Function to handle language change
   const handleLanguageChange = (language: string) => {
@@ -23,11 +28,16 @@ const CodeEditorWrapper: React.FC<CodeEditorWrapperProps> = ({
 
   // Function to handle theme change
   const handleThemeChange = (theme: string) => {
+    setBgColor(selectBackgroundColor(theme)); // Update background color
     setSelectedTheme(theme); // Update selectedTheme state
   };
+  console.log("component is rendered");
 
   return (
-    <div className="px-2 py-4 min-h-screen bg-gray-100 flex flex-col overflow-hidden">
+    <div
+      style={{ backgroundColor: bgColor }}
+      className="min-h-screen flex flex-col overflow-hidden"
+    >
       {/* Render Header component with props */}
       <Header
         availableLanguages={availableLanguages}

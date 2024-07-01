@@ -3,7 +3,7 @@ import React from "react";
 // Footer component displaying GitHub link, developer credit, and email contact
 const Footer: React.FC = () => {
   return (
-    <footer className="py-1 fixed bottom-0 left-0 right-0 z-10 bg-gray-100 shadow-md text-xs text-gray-500">
+    <footer className="py-1 fixed bottom-0 left-0 right-0 z-10 bg-gray-200 shadow-md text-xs text-gray-500">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Left section with GitHub link */}
         <div className="text-left">

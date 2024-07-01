@@ -19,23 +19,24 @@ const Header: React.FC<HeaderProps> = ({
   handleThemeChange,
 }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-10 bg-slate-200 shadow-md py-1 px-4">
+    <header className="fixed top-0 left-0 right-0 z-10 bg-gray-200 shadow-lg py-1 px-4 h-16 border border-gray-400">
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Left section: Select a Language */}
         <div className="w-48">
           <div className="mb-1">
-            <h3 className="mt-1 pb-1 text-center text-xs font-semibold text-gray-700">
+            <h3 className="shadow-lg pb-1 text-center text-xs font-bold text-gray-900">
               Select a Language
             </h3>
             {/* DropdownField component for selecting a language */}
             <DropdownField
+              // className={'h-8'}
               name="language"
               data={availableLanguages}
               onChange={(e) => handleLanguageChange(e.target.value)}
               labelKey="name"
               valueKey="value"
               placeholder="select a language"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="w-full bg-white hover:bg-gray-200 hover:cursor-pointer mb-4 h-8 border border-gray-400 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
               value={selectedLanguage} // Currently selected language value
             />
           </div>
@@ -52,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({
         {/* Right section: Select a Theme */}
         <div className="w-48">
           <div className="mb-1">
-            <h3 className="mt-1 pb-1 text-center text-xs font-semibold text-gray-700">
+            <h3 className="pb-1 text-center text-xs font-bold text-gray-900">
               Select a Theme
             </h3>
             {/* DropdownField component for selecting a theme */}
@@ -63,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({
               labelKey="name"
               valueKey="value"
               placeholder="select a theme"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="bg-white hover:bg-gray-200 hover:border-gray-500 hover:cursor-pointer w-full mb-4 h-8 border border-gray-400 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
               value={selectedTheme} // Currently selected theme value
             />
           </div>
