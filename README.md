@@ -82,30 +82,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Project Structure
 
-\`\`\`
-code-editor/
-├── public/
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── Button.tsx
-│   │   ├── CodeEditor.tsx
-│   │   ├── CodeEditorWrapper.tsx
-│   │   ├── DropdownField.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Header.tsx
-│   │   └── ...
-│   ├── utils/
-│   │   ├── helpers.ts
-│   │   └── ...
-│   ├── App.tsx
-│   ├── index.tsx
-│   └── ...
-├── README.md
-├── package.json
-└── ...
-\`\`\`
+The project is structured into several components:
+
+- **CodeEditorWrapper**: Main wrapper that handles state management and layout.
+- **Header**: Component for selecting language and theme, and includes copy and download buttons.
+- **CodeEditor**: Core editor component with syntax highlighting.
+- **Footer**: Component for additional information or actions.
+- **DropdownField**: Reusable dropdown component for selecting language and theme.
+- **Button**: Reusable button component.
 
 ## Available Scripts
 
