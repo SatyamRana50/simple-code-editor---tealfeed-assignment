@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
       type={type ? type : "button"}
       disabled={disabled}
       onClick={onClick}
-      className={`${bgColor} text-white ${hoverColor} focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-full mt-1`}
+      className={`${bgColor} text-white ${hoverColor} focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mt-1`}
     >
       {label}
     </button>

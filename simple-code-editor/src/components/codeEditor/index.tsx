@@ -5,17 +5,21 @@ import CustomSyntaxHighlighter from "./CodeHighlighter";
 interface CodeEditorProps {
   selectedLanguage: string;
   selectedTheme: string;
+  setCodeInWrapper: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({
   selectedLanguage,
   selectedTheme,
+  setCodeInWrapper,
 }) => {
   const [code, setCode] = useState<string>("");
   const scrollRef = useRef<HTMLTextAreaElement>(null);
 
   const handleChange = (value: string) => {
     setCode(value);
+    setCodeInWrapper(value);
+
   };
 
   return (
